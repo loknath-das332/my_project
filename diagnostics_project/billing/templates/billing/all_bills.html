@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>All Bills</title>
+    <style>
+        
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #f0f0f5;
+            padding: 30px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+            text-align: center;
+        }
+
+        th {
+            background-color: #0073e6;
+            color: white;
+        }
+
+        tr:hover {
+            background-color: #f1f9ff;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #0073e6;
+        }
+
+    
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>📋 All Bills</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Patient</th>
+                    <th>Tests</th>
+                    <th>Total Amount (₹)</th>
+                    <th>Date</th>
+                    
+
+                </tr>
+            </thead>
+            <tbody>
+                {% for bill in bills %}
+                    <tr>
+                        <td>{{ bill.patient.name }}</td>
+                        <td>
+                            {% for test in bill.tests.all %}
+                                {{ test.name }}{% if not forloop.last %}, {% endif %}
+                            {% endfor %}
+                        </td>
+
+                        <td>{{ bill.total }}</td>
+                        <td>{{ bill.created_at|date:"d M Y, h:i A" }}</td>
+
+                    </tr>
+                {% empty %}
+                    <tr>
+                        <td colspan="4">No bills found.</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <a href="/" class="back-link">← Back to Home</a>
+    </div>
+</body>
+</html>

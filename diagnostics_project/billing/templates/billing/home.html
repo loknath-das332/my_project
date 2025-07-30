@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Diagnostics Billing System</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(to right, #141E30, #243B55);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px 60px;
+            border-radius: 15px;
+            box-shadow: 0 0 30px rgba(0,0,0,0.3);
+            text-align: center;
+            width: 90%;
+            max-width: 500px;
+        }
+
+        h1 {
+            font-size: 32px;
+            margin-bottom: 30px;
+            color: #00ffc3;
+        }
+
+        .button {
+            display: block;
+            margin: 15px auto;
+            padding: 12px 20px;
+            background-color: #00ffc3;
+            color: #000;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .button:hover {
+            background-color: #00b38f;
+            transform: scale(1.05);
+            color: #fff;
+        }
+
+        footer {
+            margin-top: 20px;
+            font-size: 13px;
+            color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🏥 Diagnostics Billing Software</h1>
+
+        <a href="/add_patient/" class="button">➕ Add Patient</a>
+        <a href="/generate_bill/" class="button">🧾 Generate Bill</a>
+        <a href="/all_bills/" class="button">📋 View Bills</a>
+        <a href="/all_patients/" class="button">👨‍⚕️ All Patients</a>
+        <a href="/admin/" class="button">🔐 Admin Panel</a>
+
+        <footer>© 2025 | Developed with Django</footer>
+    </div>
+</body>
+</html>
